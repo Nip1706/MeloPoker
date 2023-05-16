@@ -8,5 +8,125 @@
 </head>
 <body>
     <h1>Hello World</h1>
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Calcul de la valeur des jetons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calcul de la valeur des jetons</h1>
+    <label>Couleur du jeton :</label>
+    <input type="text" id="couleur" placeholder="Couleur du jeton">
+
+    <label>Valeur du jeton :</label>
+    <input type="number" id="valeur" placeholder="Valeur du jeton">
+
+    <label>Nombre de jetons :</label>
+    <input type="number" id="nombre" placeholder="Nombre de jetons">
+
+    <button onclick="ajouterJeton()">Ajouter Jeton</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    var jetonsAdversaire = [];
+
+    function ajouterJeton() {
+      var couleur = document.getElementById("couleur").value;
+      var valeur = parseInt(document.getElementById("valeur").value);
+      var nombre = parseInt(document.getElementById("nombre").value);
+
+      if (couleur && !isNaN(valeur) && !isNaN(nombre)) {
+        var jeton = {
+          couleur: couleur,
+          valeur: valeur,
+          nombre: nombre
+        };
+
+        jetonsAdversaire.push(jeton);
+        afficherResultat();
+        viderChamps();
+      }
+    }
+
+    function calculerValeurTotale(jetons) {
+      var valeurTotale = 0;
+
+      for (var i = 0; i < jetons.length; i++) {
+        var jeton = jetons[i];
+        valeurTotale += jeton.valeur * jeton.nombre;
+      }
+
+      return valeurTotale;
+    }
+
+    function afficherResultat() {
+      var valeurAdversaire = calculerValeurTotale(jetonsAdversaire);
+      document.getElementById("result").textContent = "La valeur totale des jetons de l'adversaire est de : " + valeurAdversaire;
+    }
+
+    function viderChamps() {
+      document.getElementById("couleur").value = "";
+      document.getElementById("valeur").value = "";
+      document.getElementById("nombre").value = "";
+    }
+  </script>
+</body>
+</
+
 </body>
 </html>
