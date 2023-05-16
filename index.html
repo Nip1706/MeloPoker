@@ -7,7 +7,7 @@
     <title>CoinsCount</title>
 </head>
 <body>
-    <h1>Calculer les jetons de votre adversaire</h1>
+    <h1 class="titre">Calculer les jetons de votre adversaire</h1>
 
     <!DOCTYPE html>
 <html>
@@ -16,6 +16,11 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-image: url(https://getwallpapers.com/wallpaper/full/4/7/b/1392994-free-download-poker-wallpaper-1920x1080.jpg);
+    }
+
+    .titre {
+        color: white;
     }
 
     .container {
@@ -39,11 +44,14 @@
     input[type="text"] {
       width: 100%;
       padding: 5px;
+      margin-bottom: 20px;
     }
 
     input[type="number"] {
-      width: 60px;
+      width: 100%;
       padding: 5px;
+      margin-bottom: 20px;
+
     }
 
     button {
@@ -73,15 +81,15 @@
   <div class="container">
     <h1>Calcul de la valeur des jetons</h1>
     <label>Couleur du jeton :</label>
-    <input type="text" id="couleur" placeholder="Couleur du jeton">
+    <input type="text" id="couleur" placeholder="Renseigner la couleur du jeton">
 
     <label>Valeur du jeton :</label>
-    <input type="number" id="valeur" placeholder="Valeur du jeton">
+    <input type="number" id="valeur" placeholder="Renseigner la valeur du jeton ajouté ci-dessus">
 
     <label>Nombre de jetons :</label>
-    <input type="number" id="nombre" placeholder="Nombre de jetons">
+    <input type="number" id="nombre" placeholder="Indiquer le nombre de jetons">
 
-    <button onclick="ajouterJeton()">Ajouter Jeton</button>
+    <button onclick="ajouterJeton()">Calculer</button>
 
     <button class="zero" onclick="remiseAZero()">Remise à zéro</button>
   
